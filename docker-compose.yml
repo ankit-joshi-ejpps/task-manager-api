@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:17.6
+    environment:
+      POSTGRES_DB: ${POSTGRES_TASK_MANAGER_DB}
+      POSTGRES_USER: ${POSTGRES_TASK_MANAGER_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_TASK_MANAGER_PASSWORD}
+    ports:
+      - "${POSTGRES_TASK_MANAGER_PORT}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
